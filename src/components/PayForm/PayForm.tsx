@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
-import { OperatorPayData } from "../../common/types";
-import { PayFormStyled, PayFormLoaderStyled } from "./styles";
-import spinner from "../../static/images/spinner.svg";
+import { useHistory, useParams } from "react-router-dom";
 import api from "../../api/api";
-import { PayFormEmptyStyled } from "./styles";
+import { OperatorPayData } from "../../common/types";
+import spinner from "../../static/images/spinner.svg";
+import {
+  PayFormEmptyStyled,
+  PayFormLoaderStyled,
+  PayFormStyled,
+} from "./styles";
 
 type InputData = {
   text: string;
@@ -199,9 +202,9 @@ const PayForm: React.FC<PayFormProps> = (props) => {
             {money.error && <div className="error">{money.error}</div>}
           </div>
 
-          <button className="row" onClick={handleSubmit}>
-            Оплатить
-          </button>
+          <div className="row">
+            <button onClick={handleSubmit}>Оплатить</button>
+          </div>
         </div>
       )}
     </PayFormStyled>
