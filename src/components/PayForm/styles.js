@@ -14,7 +14,10 @@ export const PayFormStyled = styled.div`
     align-items: center;
   }
   & .row {
+    display: flex;
+    flex-direction: column;
     margin-top: 16px;
+    width: 280px;
   }
   & .title {
     color: #242424;
@@ -50,6 +53,7 @@ export const PayFormStyled = styled.div`
     font-size: 12px;
   }
   & button {
+    margin: 0 auto;
     padding: 12px 18px;
     border: none;
     border-radius: 23px;
