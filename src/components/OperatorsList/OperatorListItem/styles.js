@@ -2,16 +2,26 @@ import styled from "styled-components";
 import { colors } from "../../../common/constants";
 
 export const OperatorStyled = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 16px;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 8px ${colors.shadow_primary};
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s;
+  & a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+    padding: 16px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px ${colors.shadow_primary};
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    &:hover,
+    &:focus {
+      transform: rotate(3deg);
+      & .text {
+        font-size: 50px;
+      }
+    }
+  }
   & .text {
     color: ${colors.text_dark};
     font-weight: 500;
@@ -20,15 +30,8 @@ export const OperatorStyled = styled.li`
   }
   & img {
     width: 100%;
-    max-height: 200px;
-    max-width: 400px;
+    height: 200px;
     object-fit: contain;
     margin-bottom: 20px;
-  }
-  &:hover {
-    transform: rotate(3deg);
-    & .text {
-      font-size: 50px;
-    }
   }
 `;
