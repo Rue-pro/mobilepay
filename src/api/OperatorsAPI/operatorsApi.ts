@@ -1,24 +1,21 @@
-import { Operators, OperatorPayData, ResponseResult } from "../../common/types";
+import { Operator, OperatorPayData, ResponseResult } from "../../common/types";
 import { logApiData } from "../console";
 
 const fakeOperators = [
   {
     id: 1,
-    englishName: "mts",
     name: "МТС",
     logoURL:
       "https://upload.wikimedia.org/wikipedia/commons/8/86/MTS_logo_2015.svg",
   },
   {
     id: 2,
-    englishName: "beline",
     name: "Билайн",
     logoURL:
       "https://upload.wikimedia.org/wikipedia/commons/7/7a/BeeLine_logo.png",
   },
   {
     id: 3,
-    englishName: "megafon",
     name: "Мегафон",
     logoURL:
       "https://upload.wikimedia.org/wikipedia/commons/9/9e/MegaFon_logo.svg",
@@ -30,18 +27,19 @@ const responseMessages = [
   "Оплата проведена успешно.",
 ];
 
-const getOperators = (): Promise<Operators[]> => {
-  return new Promise<Operators[]>((resolve) => {
+const getOperators = (): Promise<Operator[]> => {
+  return new Promise<Operator[]>((resolve) => {
     logApiData("getOperators", "get", fakeOperators);
     setTimeout(() => resolve(fakeOperators), 2000);
   });
 };
 
-const getOperator = (id: number): Promise<Operators> => {
-  return new Promise<Operators>((resolve) => {
-    const operator = fakeOperators.find((operator) => operator.id === id);
+const getOperator = (id: number): Promise<Operator | null> => {
+  return new Promise<Operator | null>((resolve) => {
+    let operator: Operator | null =
+      fakeOperators.find((operator) => operator.id === id) || null;
     logApiData("getOperator", "get", operator, id);
-    if (operator) setTimeout(() => resolve(operator), 2000);
+    setTimeout(() => resolve(operator), 2000);
   });
 };
 
