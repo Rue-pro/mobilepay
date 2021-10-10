@@ -1,4 +1,4 @@
-export type Operators = {
+export type Operator = {
   id: number;
   name: string;
   logoURL: string;
