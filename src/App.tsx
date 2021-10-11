@@ -1,4 +1,4 @@
-import { createBrowserHistory } from "history";
+import { createBrowserHistory as createHistory } from "history";
 import React from "react";
 import { Route, Router } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -7,7 +7,7 @@ import OperatorsList from "./components/OperatorsList/OperatorsList";
 import PayForm from "./components/PayForm/PayForm";
 import { AppStyled } from "./styles";
 
-const history = createBrowserHistory();
+const history = createHistory();
 
 const App: React.FC = () => {
   const handleNotify = (message: string) => {

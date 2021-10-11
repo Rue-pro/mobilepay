@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
 import { Operator } from "../../common/types";
-import spinner from "../../static/images/spinner.svg";
+import spinner from "../../../static/images/spinner.svg";
 import OperatorListItem from "./OperatorListItem/OperatorListItem";
 import {
   OperatorsEmptyListStyled,
