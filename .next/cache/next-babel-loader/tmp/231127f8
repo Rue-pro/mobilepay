@@ -1,1 +1,0 @@
-{"ast":null,"code":"import operatorsApi from \"./OperatorsAPI/operatorsApi\";\nvar api = {\n  operators: operatorsApi\n};\nexport default api;","map":null,"metadata":{},"sourceType":"module"}
