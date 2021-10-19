@@ -1,15 +1,11 @@
+import { GetStaticProps } from "next";
 import React from "react";
-import PayForm from "../../views/PayForm/PayForm";
 import { Operator } from "../../common/types";
+import PayForm from "../../views/Operators/PayForm/PayForm";
 import { api } from "../api/operators";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 type PayFormProps = {
   operator: Operator;
-};
-
-type staticPropsProps = {
-  id: string;
 };
 
 const PayPage: React.FC<PayFormProps> = (props) => {

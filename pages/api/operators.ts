@@ -1,3 +1,4 @@
+import { OperatorPayData } from "../../common/types";
 import operators from "../../db/operators";
 
 const RESPONSE_MESSAGES = [
@@ -16,7 +17,7 @@ export const api = {
   getOperator(id: string) {
     return operators.find((op) => op.id === Number(id)) || null;
   },
-  payOperator() {
+  payOperator(payData: OperatorPayData) {
     const responseCode = getRandomInt(2);
     return {
       code: responseCode,
