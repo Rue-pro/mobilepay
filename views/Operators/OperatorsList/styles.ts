@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { device, colors } from "../../common/constants";
+import { device, colors } from "../../../styles/constants";
+import { OperatorStyled } from "./OperatorListItem/styles";
 
 export const OperatorsStyled = styled.ol`
   display: flex;
@@ -8,32 +9,21 @@ export const OperatorsStyled = styled.ol`
   list-style: none;
   padding: 16px;
 
-  & > li {
+  & ${OperatorStyled} {
     width: 100%;
     margin-top: 25px;
   }
 
   @media ${device.mobileXL} {
-    & > li {
+    & ${OperatorStyled} {
       width: 49%;
     }
   }
 
   @media ${device.tablet} {
-    & > li {
+    & ${OperatorStyled} {
       width: 32%;
     }
-  }
-`;
-
-export const OperatorsLoaderStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  & img {
-    width: 100px;
   }
 `;
 
@@ -43,10 +33,8 @@ export const OperatorsEmptyListStyled = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100%;
-  & span {
-    font-weight: 500;
-    font-size: 50px;
-    color: ${colors.text_gray_light};
-    text-align: center;
-  }
+  font-weight: 500;
+  font-size: 50px;
+  color: ${colors.text_gray_light};
+  text-align: center;
 `;

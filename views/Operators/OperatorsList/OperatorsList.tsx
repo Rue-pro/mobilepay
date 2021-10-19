@@ -1,5 +1,5 @@
 import React from "react";
-import { Operator } from "../../common/types";
+import { Operator } from "../../../common/types";
 import OperatorListItem from "./OperatorListItem/OperatorListItem";
 import { OperatorsEmptyListStyled, OperatorsStyled } from "./styles";
 
@@ -12,7 +12,7 @@ const OperatorsList: React.FC<OperatorsListProps> = (props) => {
   if (!operators.length) {
     return (
       <OperatorsEmptyListStyled>
-        <span>Список мобильных операторов пуст</span>
+        Список мобильных операторов пуст
       </OperatorsEmptyListStyled>
     );
   }

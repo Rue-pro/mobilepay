@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { Operator } from "../common/types";
-import OperatorsList from "../views/OperatorsList/OperatorsList";
+import Operators from "../views/Operators/Operators";
 import { api } from "./api/operators";
 
 type HomeProps = {
@@ -9,7 +9,7 @@ type HomeProps = {
 const Home: NextPage<HomeProps> = (props) => {
   const { operators } = props;
 
-  return <OperatorsList operators={operators} />;
+  return <Operators operators={operators} />;
 };
 
 export async function getStaticProps() {
