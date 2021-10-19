@@ -29,7 +29,7 @@ const OperatorsList: React.FC<OperatorsListProps> = (props) => {
   return (
     <OperatorsStyled>
       {operators.map((operator) => {
-        return <OperatorListItem key={operator.name} operator={operator} />;
+        return <OperatorListItem key={operator.id} operator={operator} />;
       })}
     </OperatorsStyled>
   );

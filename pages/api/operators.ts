@@ -18,7 +18,7 @@ export const api = {
     return operators.find((op) => op.id === Number(id)) || null;
   },
   createOperator(operator: OperatorNew) {
-    operators.push(Object.assign(operator, { id: operators.length }));
+    operators.push(Object.assign(operator, { id: operators.length + 1 }));
     return {
       code: 1,
       message: "Оператор успешно создан.",
