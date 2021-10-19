@@ -1,4 +1,4 @@
-import { OperatorPayData } from "../../common/types";
+import { OperatorPayData, OperatorNew } from "../../common/types";
 import operators from "../../db/operators";
 
 const RESPONSE_MESSAGES = [
@@ -16,6 +16,13 @@ export const api = {
   },
   getOperator(id: string) {
     return operators.find((op) => op.id === Number(id)) || null;
+  },
+  createOperator(operator: OperatorNew) {
+    operators.push(Object.assign(operator, { id: operators.length }));
+    return {
+      code: 1,
+      message: "Оператор успешно создан.",
+    };
   },
   payOperator(payData: OperatorPayData) {
     const responseCode = getRandomInt(2);
