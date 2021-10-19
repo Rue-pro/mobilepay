@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import Button from "../../../common/Button/Button";
@@ -9,21 +9,29 @@ import Row from "../../../common/Row/Row";
 import Title from "../../../common/Title/Title";
 import { Operator, OperatorPayData } from "../../../common/types";
 import { api } from "../../../pages/api/operators";
+import { colors } from "../../../styles/constants";
 
 export interface PayFormOperator {
   id: number;
   name: string;
 }
 export interface PayFormProps {
-  operator: Operator;
+  operator: Operator | null;
 }
 
 const PayForm: React.FC<PayFormProps> = (props) => {
-  const { operator } = props;
+  const { operator: operatorSSR } = props;
+  const [operator, setOperator] = useState<Operator | null>(operatorSSR);
+
   const router = useRouter();
+  const { id } = router.query;
 
   const [phone, setPhone] = useState<string>("");
   const [money, setMoney] = useState<string>("");
+
+  useEffect(() => {
+    if (id) setOperator(api.getOperator(id.toString()));
+  }, []);
 
   const submit = (payData: OperatorPayData) => {
     const data = api.payOperator(payData);
@@ -45,8 +53,17 @@ const PayForm: React.FC<PayFormProps> = (props) => {
   };
 
   const handleSubmit = () => {
-    submit({ id: operator.id, phone: phone, money: Number(money) });
+    if (operator)
+      submit({ id: operator.id, phone: phone, money: Number(money) });
   };
+
+  if (!operator) {
+    return (
+      <PayFormEmptyStyled>
+        <span>Данного мобильного оператора не существует</span>
+      </PayFormEmptyStyled>
+    );
+  }
 
   return (
     <PayFormStyled>
@@ -110,4 +127,18 @@ export const PayFormBodyStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const PayFormEmptyStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  & span {
+    font-weight: 500;
+    font-size: 50px;
+    color: ${colors.text_gray_light};
+    text-align: center;
+  }
 `;

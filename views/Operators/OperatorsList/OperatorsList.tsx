@@ -12,7 +12,7 @@ type OperatorsListProps = {
 };
 const OperatorsList: React.FC<OperatorsListProps> = (props) => {
   const { operators: operatorsSSR } = props;
-  const [operators, setOperators] = useState(operatorsSSR);
+  const [operators, setOperators] = useState<Operator[]>(operatorsSSR);
 
   useEffect(() => {
     setOperators(api.getOperators());

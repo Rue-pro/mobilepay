@@ -15,6 +15,7 @@ export const api = {
     return operators;
   },
   getOperator(id: string) {
+    console.log(operators);
     return operators.find((op) => op.id === Number(id)) || null;
   },
   createOperator(operator: OperatorNew) {
