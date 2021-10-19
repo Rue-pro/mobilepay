@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Label: React.FC<React.ForwardedRef<HTMLLabelElement>> = (props) => {
+const Label: React.FC<React.LabelHTMLAttributes<HTMLLabelElement>> = (
+  props
+) => {
   const { children, ...rest } = props;
   return <LabelStyled {...rest}>{children}</LabelStyled>;
 };

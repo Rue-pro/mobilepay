@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/constants";
 
-const Button: React.FC<React.ForwardedRef<HTMLButtonElement>> = (props) => {
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (
+  props
+) => {
   const { children, ...rest } = props;
   return <ButtonStyled {...rest}>{children}</ButtonStyled>;
 };

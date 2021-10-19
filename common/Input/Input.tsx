@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/constants";
 
-const Input: React.FC<React.ForwardedRef<HTMLInputElement>> = (props) => {
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => {
   const { children, ...rest } = props;
   return <InputStyled {...rest}>{children}</InputStyled>;
 };
