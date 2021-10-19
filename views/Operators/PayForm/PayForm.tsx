@@ -1,17 +1,14 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import styled from "styled-components";
+import Button from "../../../common/Button/Button";
+import Input from "../../../common/Input/Input";
+import Label from "../../../common/Label/Label";
+import Row from "../../../common/Row/Row";
+import Title from "../../../common/Title/Title";
 import { Operator, OperatorPayData } from "../../../common/types";
 import { api } from "../../../pages/api/operators";
-import {
-  PayFormBodyStyled,
-  PayFormButtonStyled,
-  PayFormInputStyled,
-  PayFormLabelStyled,
-  PayFormRowStyled,
-  PayFormStyled,
-  PayFormTitleStyled,
-} from "./styles";
 
 export interface PayFormOperator {
   id: number;
@@ -59,13 +56,11 @@ const PayForm: React.FC<PayFormProps> = (props) => {
           handleSubmit();
         }}
       >
-        <PayFormTitleStyled>{operator.name}</PayFormTitleStyled>
+        <Title>{operator.name}</Title>
 
-        <PayFormRowStyled>
-          <PayFormLabelStyled htmlFor="payform_phone">
-            Телефон
-          </PayFormLabelStyled>
-          <PayFormInputStyled
+        <Row>
+          <Label htmlFor="payform_phone">Телефон</Label>
+          <Input
             id="payform_phone"
             type="tel"
             pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
@@ -76,13 +71,11 @@ const PayForm: React.FC<PayFormProps> = (props) => {
             value={phone}
             onInput={handleInputPhone}
           />
-        </PayFormRowStyled>
+        </Row>
 
-        <PayFormRowStyled>
-          <PayFormLabelStyled htmlFor="payform_money">
-            Сумма (от 1 до 1000)
-          </PayFormLabelStyled>
-          <PayFormInputStyled
+        <Row>
+          <Label htmlFor="payform_money">Сумма (от 1 до 1000)</Label>
+          <Input
             id="payform_money"
             type="number"
             min={1}
@@ -92,14 +85,29 @@ const PayForm: React.FC<PayFormProps> = (props) => {
             value={money}
             onInput={handleInputMoney}
           />
-        </PayFormRowStyled>
+        </Row>
 
-        <PayFormRowStyled>
-          <PayFormButtonStyled>Оплатить</PayFormButtonStyled>
-        </PayFormRowStyled>
+        <Row>
+          <Button>Оплатить</Button>
+        </Row>
       </PayFormBodyStyled>
     </PayFormStyled>
   );
 };
 
 export default PayForm;
+
+export const PayFormStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
+
+export const PayFormBodyStyled = styled.form`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
