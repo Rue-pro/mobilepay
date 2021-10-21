@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { Operator } from "../../common/types";
 import PayForm from "../../views/Operators/PayForm/PayForm";
@@ -16,7 +16,16 @@ const PayPage: React.FC<PayFormProps> = (props) => {
 
 export default PayPage;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const operators = api.getOperators();
+
+  const paths = operators.map((operator) => ({
+    params: { id: operator.id.toString() },
+  }));
+  return { paths, fallback: true };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id: string = !params || typeof params.id !== "string" ? "" : params.id;
   const operator = api.getOperator(id);
   return { props: { operator } };
