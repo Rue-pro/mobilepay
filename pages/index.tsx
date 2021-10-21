@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import { Operator } from "../common/types";
 import Operators from "../views/Operators/Operators";
 import { api } from "./api/operators";
@@ -11,8 +11,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return <Operators operators={operators} />;
 };
-
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const operators = api.getOperators();
 
   if (!operators) {
@@ -24,5 +23,5 @@ export async function getStaticProps() {
   return {
     props: { operators },
   };
-}
+};
 export default Home;

@@ -37,7 +37,7 @@ const OperatorsList: React.FC<OperatorsListProps> = (props) => {
 
 export default OperatorsList;
 
-export const OperatorsStyled = styled.ol`
+const OperatorsStyled = styled.ol`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -62,7 +62,7 @@ export const OperatorsStyled = styled.ol`
   }
 `;
 
-export const OperatorsEmptyListStyled = styled.div`
+const OperatorsEmptyListStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

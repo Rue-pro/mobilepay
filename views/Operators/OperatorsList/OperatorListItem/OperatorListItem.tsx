@@ -27,14 +27,14 @@ export default OperatorListItem;
 
 export const OperatorStyled = styled.li``;
 
-export const OperatorTextStyled = styled.div`
+const OperatorTextStyled = styled.div`
   color: ${colors.text_dark};
   font-weight: 500;
   font-size: 36px;
   transition: font-size 0.3s;
 `;
 
-export const OperatorLinkStyled = styled.a`
+const OperatorLinkStyled = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +55,7 @@ export const OperatorLinkStyled = styled.a`
   }
 `;
 
-export const OperatorImgStyled = styled.img`
+const OperatorImgStyled = styled.img`
   width: 100%;
   height: 200px;
   object-fit: contain;

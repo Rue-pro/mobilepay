@@ -12,7 +12,7 @@ const Title: React.FC<TitleProps> = (props) => {
 
 export default Title;
 
-export const TitleStyled = styled.h1`
+const TitleStyled = styled.h1`
   color: #242424;
   font-weight: 500;
   font-size: 36px;

@@ -11,7 +11,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
 
 export default Input;
 
-export const InputStyled = styled.input`
+const InputStyled = styled.input`
   display: block;
   margin: 0 auto;
   width: 100%;

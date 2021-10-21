@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import styled from "styled-components";
 import Button from "../../../common/Button/Button";
+import Form from "../../../common/Form/Form";
 import Input from "../../../common/Input/Input";
 import Label from "../../../common/Label/Label";
 import Row from "../../../common/Row/Row";
@@ -19,63 +19,49 @@ const AddOperator: React.FC = () => {
     router.push("/");
   };
 
-  const handleInputName = (e: any) => {
+  const handleInputName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setName(value);
   };
-  const handleInputLogoURL = (e: any) => {
+  const handleInputLogoURL = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setLogoURL(value);
   };
 
   return (
-    <AddOperatorStyled>
-      <AddOperatorBodyStyled
-        onSubmit={(e) => {
-          e.preventDefault();
-          submit();
-        }}
-      >
-        <Title>Оператор</Title>
-        <Row>
-          <Label htmlFor="createOperatorFormName">Наименование</Label>
-          <Input
-            id="createOperatorFormName"
-            type="text"
-            required
-            onInput={handleInputName}
-          />
-        </Row>
-        <Row>
-          <Label htmlFor="createOperatorFormLogoURL">Ссылка на логотип</Label>
-          <Input
-            id="createOperatorFormLogoURL"
-            type="text"
-            required
-            onInput={handleInputLogoURL}
-          />
-        </Row>
-        <Row>
-          <Button>Сохранить</Button>
-        </Row>
-      </AddOperatorBodyStyled>
-    </AddOperatorStyled>
+    <Form
+      onSubmit={(e) => {
+        e.preventDefault();
+        submit();
+      }}
+    >
+      <Title>Оператор</Title>
+
+      <Row>
+        <Label htmlFor="createOperatorFormName">Наименование</Label>
+        <Input
+          id="createOperatorFormName"
+          type="text"
+          required
+          onInput={handleInputName}
+        />
+      </Row>
+
+      <Row>
+        <Label htmlFor="createOperatorFormLogoURL">Ссылка на логотип</Label>
+        <Input
+          id="createOperatorFormLogoURL"
+          type="text"
+          required
+          onInput={handleInputLogoURL}
+        />
+      </Row>
+
+      <Row>
+        <Button>Сохранить</Button>
+      </Row>
+    </Form>
   );
 };
 
 export default AddOperator;
-
-export const AddOperatorStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-`;
-
-export const AddOperatorBodyStyled = styled.form`
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;

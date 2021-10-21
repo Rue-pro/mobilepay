@@ -12,7 +12,7 @@ const Row: React.FC<Row> = (props) => {
 
 export default Row;
 
-export const RowStyled = styled.div`
+const RowStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 16px;

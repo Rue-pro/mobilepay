@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { CREATE_PATH } from "../../common/constants";
 import { Operator } from "../../common/types";
@@ -24,7 +24,7 @@ const Operators: React.FC<OperatorsProps> = (props) => {
 
 export default Operators;
 
-export const OperatorsAddButton = styled.button`
+const OperatorsAddButton = styled.button`
   position: fixed;
   bottom: 6%;
   left: 4%;
