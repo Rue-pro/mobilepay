@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { PAY_PATH } from "../../../../common/constants";
 import { Operator } from "../../../../common/types";
-import { colors } from "../../../../styles/constants";
+import { colors, device } from "../../../../styles/constants";
 
 export type OperatorListItemProps = {
   operator: Operator;
@@ -25,7 +25,32 @@ const OperatorListItem: React.FC<OperatorListItemProps> = ({ operator }) => {
 
 export default OperatorListItem;
 
-export const OperatorStyled = styled.li``;
+export const OperatorStyled = styled.li`
+  position: relative;
+  height: 307px;
+  width: 100%;
+  margin-top: 25px;
+
+  @media ${device.mobileXL} {
+    width: 49%;
+    &:nth-child(n) {
+      margin-right: 2%;
+    }
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 32%;
+    &:nth-child(2n) {
+      margin-right: 2%;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+`;
 
 const OperatorTextStyled = styled.div`
   color: ${colors.text_dark};
@@ -35,6 +60,8 @@ const OperatorTextStyled = styled.div`
 `;
 
 const OperatorLinkStyled = styled.a`
+  position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +76,7 @@ const OperatorLinkStyled = styled.a`
   &:hover,
   &:focus {
     transform: rotate(3deg);
+    z-index: 1;
     & ${OperatorTextStyled} {
       font-size: 50px;
     }

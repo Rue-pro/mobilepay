@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Operator } from "../../../common/types";
 import { api } from "../../../pages/api/operators";
-import { colors, device } from "../../../styles/constants";
-import OperatorListItem, {
-  OperatorStyled,
-} from "./OperatorListItem/OperatorListItem";
+import { colors } from "../../../styles/constants";
+import OperatorListItem from "./OperatorListItem/OperatorListItem";
 
 type OperatorsListProps = {
   operators: Operator[];
@@ -40,26 +38,8 @@ export default OperatorsList;
 const OperatorsStyled = styled.ol`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   list-style: none;
   padding: 16px;
-
-  & ${OperatorStyled} {
-    width: 100%;
-    margin-top: 25px;
-  }
-
-  @media ${device.mobileXL} {
-    & ${OperatorStyled} {
-      width: 49%;
-    }
-  }
-
-  @media ${device.tablet} {
-    & ${OperatorStyled} {
-      width: 32%;
-    }
-  }
 `;
 
 const OperatorsEmptyListStyled = styled.div`

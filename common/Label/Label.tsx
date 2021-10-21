@@ -10,9 +10,9 @@ const Label: React.FC<React.LabelHTMLAttributes<HTMLLabelElement>> = (
 
 export default Label;
 
-export const LabelStyled = styled.label`
+const LabelStyled = styled.label`
   display: block;
-  padding-left: 16px;
+  padding: 0 16px;
   margin-bottom: 4px;
   font-size: 14px;
   font-weight: 500;
