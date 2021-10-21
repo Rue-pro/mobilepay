@@ -54,6 +54,5 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
-  overflow: hidden;
   text-align: center;
 `;

@@ -34,11 +34,15 @@ const OperatorsContainer = styled(Container)`
   position: relative;
   min-height: 100vh;
   padding: 0;
+  & ol {
+    min-height: calc(100vh - 48px);
+  }
 `;
 
 const OperatorsAddButton = styled.div`
-  position: absolute;
-  top: calc(98vh - 48px);
-  left: 16px;
+  position: sticky;
+  bottom: 2vh;
+  margin-left: 16px;
+  width: 48px;
   z-index: 10;
 `;
